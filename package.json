@@ -19,10 +19,10 @@
   "bugs": {
     "url": "https://github.com/devWayne/gulp-ftp-env/issues"
   },
-   "dependencies": {
-   "jsftp": "^1.2.1",
-   "jsftp-mkdirp": "^0.1.0",
-    "clilog":"1.0.0",
+  "dependencies": {
+    "jsftp": "^1.2.1",
+    "jsftp-mkdirp": "^0.1.0",
+    "clilog": "1.0.0",
     "through2": "^0.6.3",
     "gulp-util": "^2.2.0"
   },
