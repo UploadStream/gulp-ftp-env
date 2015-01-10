@@ -9,7 +9,7 @@ var JSFtp = require('jsftp-mkdirp')(jsftp);
 
 module.exports = function(options) {
     var fileCount = 0;
-	var version=new Date().getTime().toString();
+    var timeStamp = new Date().getTime().toString();
     if (options.host == undefined) {
         throw new util.PluginError('gulp-ftp-env', '`host` required.');
     }
@@ -18,24 +18,33 @@ module.exports = function(options) {
             this.push(file);
             return cb();
         }
-
         var self = this;
 
         var ftp = new JSFtp(options);
-        var finalRemotePath = path.join('/', options.remotePath,version, file.relative).replace(/\\/g, '/');
-	    console.log(file.relative);
+        if (options.version && options.version != 'none') {
+	    file.contents = new Buffer(String(file.contents).replace(options.version, timeStamp));
+        } else if (!options.version || options.version == 'none') {
+            timeStamp = '';
+	    file.contents = new Buffer(String(file.contents).replace(options.version+'/', ''));
+        }
+
+        var finalRemotePath;
+        if (/assets\//.test(file.relative)) {
+            finalRemotePath = path.join('/', options.remotePath, timeStamp, file.relative).replace(/\\/g, '/');
+        } else {
+            finalRemotePath = path.join('/', options.remotePath, file.relative).replace(/\\/g, '/');
+        }
+    
         ftp.mkdirp(path.dirname(finalRemotePath).replace(/\\/g, '/'), function(err) {
             if (err) {
                 self.emit('error', new util.PluginError('gulp-ftp-env', err));
                 return cb();
             }
-
             ftp.put(file.contents, finalRemotePath, function(err) {
                 if (err) {
                     self.emit('error', new util.PluginError('gulp-ftp-env', err));
                     return cb();
                 }
-
                 fileCount++;
                 ftp.raw.quit();
                 cb();
