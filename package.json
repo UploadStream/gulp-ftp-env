@@ -1,6 +1,6 @@
 {
   "name": "gulp-ftp-env",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "gulp pulgin for changing environment",
   "main": "index.js",
   "scripts": {
