@@ -34,7 +34,7 @@ gulp.task('product', function() {
             "user": "",   
             "pass": "",   
             "remotePath": "foo/",   
-	    "version":"{{v}},   
+	    "version":"{{v}}",   
 	    "keywords":[{"before":"before-xxx","after":"after-xxx"}]   
         }));   
 });   
