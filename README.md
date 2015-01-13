@@ -4,6 +4,14 @@ Gulp Plugin for changing environment
 
 ##Usage
 
+First, install `gulp-replace` as a development dependency:   
+
+```shell
+npm install --save-dev gulp-replace
+```
+Then, add it to your `gulpfile.js`:   
+
+```javascript
 var ftpEnv = require('gulp-ftp-env');   
 
 gulp.task('beta', function() {   
@@ -30,4 +38,4 @@ gulp.task('product', function() {
 	    "keywords":[{"before":"before-xxx","after":"after-xxx"}]   
         }));   
 });   
-
+```
