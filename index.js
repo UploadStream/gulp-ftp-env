@@ -28,6 +28,12 @@ module.exports = function(options) {
 	    file.contents = new Buffer(String(file.contents).replace(options.version+'/', ''));
         }
 
+	if (options['keywords'] instanceof Array && options['keywords'].length>0 ){
+	    options['keywords'].forEach(function(v,idx){
+	    	(v.before && v.after)?file.contents = new Buffer(String(file.contents).replace(v.before, v.after)):util.log('gulp-ftp-env:', util.colors.yellow('keywords：'+v.before+'replace failed'));
+	    });
+	}
+
         var finalRemotePath;
         if (/assets\//.test(file.relative)) {
             finalRemotePath = path.join('/', options.remotePath, timeStamp, file.relative).replace(/\\/g, '/');
