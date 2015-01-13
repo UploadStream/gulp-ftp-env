@@ -1,10 +1,10 @@
-gulp-ftp-env
+gulp-ftp-env [![Build Status](https://travis-ci.org/devWayne/gulp-ftp-env.svg?branch=master)](https://travis-ci.org/devWayne/gulp-ftp-env)
 ============
-Gulp Plugin for changing environment
+> Gulp Plugin for environment changing and version management 
 
 ##Usage
 
-First, install `gulp-replace` as a development dependency:   
+First, install `gulp-ftp-env` as a development dependency:   
 
 ```shell
 npm install --save-dev gulp-ftp-env
