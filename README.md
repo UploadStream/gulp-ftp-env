@@ -1,4 +1,4 @@
-gulp-chg-env
+gulp-ftp-env
 ============
 Gulp Plugin for changing environment
 
@@ -7,7 +7,7 @@ Gulp Plugin for changing environment
 First, install `gulp-replace` as a development dependency:   
 
 ```shell
-npm install --save-dev gulp-replace
+npm install --save-dev gulp-ftp-env
 ```
 Then, add it to your `gulpfile.js`:   
 
